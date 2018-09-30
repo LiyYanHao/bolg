@@ -295,6 +295,18 @@ public class IndexController extends BaseController {
     }
 
     /**
+     * 友链页
+     *
+     * @return
+     */
+    @GetMapping(value = "edit_blog")
+    public String edit_blog(HttpServletRequest request) {
+        List<MetaVo> links = metaService.getMetas(Types.LINK.getType());
+        request.setAttribute("edit_blog", links);
+        return this.render("edit_blog");
+    }
+
+    /**
      * 自定义页面,如关于的页面
      */
     @GetMapping(value = "/{pagename}")
